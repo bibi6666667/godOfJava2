@@ -5,8 +5,9 @@ public class JavaLangSystem {
 
     public static void main(String[] args) {
         JavaLangSystem sample = new JavaLangSystem();
-        sample.systemPropertiesCheck();
-        sample.systemEnvironmentCheck();
+        //sample.systemPropertiesCheck();
+        //sample.systemEnvironmentCheck();
+        sample.numberMinMaxElapsedCheck();
     }
 
     public void systemPropertiesCheck() {
@@ -21,4 +22,17 @@ public class JavaLangSystem {
     }
     // 시스템 환경값(Environment) 조회 메소드 - 환경값은 OS 및 장비와 관련되며, 변경하지 못하고 읽기만 할 수 있다.
     // System.getenv(name) : 지정한 name에 해당하는 값을 받는다. JAVA_HOME은 JDK의 설치경로를 나타낸다.
+
+    public void numberMinMaxElapsedCheck() {
+        JavaLangNumber numberSample = new JavaLangNumber();
+        long startTime = System.currentTimeMillis();
+        long startNanoTime = System.nanoTime();
+        numberSample.numberMinMaxCheck();
+        System.out.println("Milli second = " + (System.currentTimeMillis() - startTime));
+        System.out.println("Nano second = " + (System.nanoTime() - startNanoTime));
+        // 현재 시간 조회 및 시간 측정 메소드
+        // currentTimeMillis() : 현재 시간을 밀리초 단위로 리턴. 현재시간 조회할 때 사용. 밀리초 = 1 / 1,000초.
+        // nanoTime() : 현재 시간을 나노초 단위로 리턴. 시간차를 측정할 때 사용. 나노초 = 1 / 1,000,000,000초.
+        // 위 예제는 JavaLangNumber클래스의 numberMinMaxCheck()메소드 작업이 얼마나 소요되는지 확인하는 코드이다.
+    }
 }
