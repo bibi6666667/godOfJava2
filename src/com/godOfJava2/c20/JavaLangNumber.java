@@ -3,8 +3,10 @@ package com.godOfJava2.c20;
 public class JavaLangNumber {
     public static void main(String[] args) {
         JavaLangNumber sample = new JavaLangNumber();
-        sample.numberTypeCheck();
-        sample.numberTypeCheck2();
+        //sample.numberTypeCheck();
+        //sample.numberTypeCheck2();
+        sample.numberMinMaxCheck();
+        sample.integerMinMaxCheckBinary();
     }
 
     public void numberTypeCheck() {
@@ -37,5 +39,27 @@ public class JavaLangNumber {
         refInt2 = 101;
         System.out.println(refInt1.doubleValue());
         System.out.println(refInt1 + refInt2);
+    }
+
+    public void numberMinMaxCheck() {
+        System.out.println("Byte min = " + Byte.MIN_VALUE + " max = " + Byte.MAX_VALUE);
+        System.out.println("Short min = " + Short.MIN_VALUE + " max = " + Short.MAX_VALUE);
+        System.out.println("Integer min = " + Integer.MIN_VALUE + " max = " + Integer.MAX_VALUE);
+        System.out.println("Long min = " + Long.MIN_VALUE + " max = " + Long.MAX_VALUE);
+        System.out.println("Float min = " + Float.MIN_VALUE + " max = " + Float.MAX_VALUE);
+        System.out.println("Double min = " + Double.MIN_VALUE + " max = " + Double.MAX_VALUE);
+        System.out.println("Character min = " + (int)Character.MIN_VALUE + " max = " + (int)Character.MAX_VALUE);
+        // Boolean클래스를 제외하고 모두 MIN_VALUE와 MAX_VALUE라는 상수를 가지고 있다. 해당 타입의 값의 범위를 확인할 수 있다. (static)
+        // Character의 경우 char타입으로 출력되어 값 확인이 어려우므로 (int)로 캐스팅해 확인한다.
+    }
+    
+    public void integerMinMaxCheckBinary() {
+        // Integer, Long처럼 긴 숫자를 2진수나 16진수로 나타내고 싶을 때 사용하는 메소드
+        // toBinaryString() : 값을 2진수의 숫자로 표현함
+        // toHexString() : 값을 16진수의 숫자로 표현함
+        System.out.println("Integer BINARY min = " + Integer.toBinaryString(Integer.MIN_VALUE));
+        System.out.println("Integer BINARY max = " + Integer.toBinaryString(Integer.MAX_VALUE));
+        System.out.println("Integer HEX min = " + Integer.toHexString(Integer.MIN_VALUE));
+        System.out.println("Integer HEX max = " + Integer.toHexString(Integer.MAX_VALUE));
     }
 }
