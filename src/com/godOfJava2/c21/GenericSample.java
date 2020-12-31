@@ -33,4 +33,21 @@ public class GenericSample {
             System.out.println("StringBuffer");
         }
     }
+
+    public void checkGenericDTO() {
+        // CastingGenericDTO를 사용해 값을 넣고 빼기 - 제네릭 활용.
+        // 제네릭 : 명시적으로 타입을 지정할 때 사용.
+        CastingGenericDTO<String> dto1 = new CastingGenericDTO<String>();
+        dto1.setObject(new String());
+        CastingGenericDTO<StringBuffer> dto2 = new CastingGenericDTO<StringBuffer>();
+        dto2.setObject(new StringBuffer());
+        CastingGenericDTO<StringBuilder> dto3 = new CastingGenericDTO<StringBuilder>();
+        dto3.setObject(new StringBuilder());
+        // setter - 객체를 선언할 때 꺽쇠 안에 각 타입을 명시해야 한다.
+
+        String temp1 = dto1.getObject();
+        StringBuffer temp2 = dto2.getObject();
+        StringBuilder temp3 = dto3.getObject();
+        // getter - 형변환을 할 필요가 없어졌다.
+    }
 }
