@@ -2,7 +2,7 @@ package com.godOfJava2.c21;
 
 import java.io.Serializable;
 
-public class CastingDTO {
+public class CastingDTO implements Serializable{
     private Object object;
 
     public void setObject(Object object) {
