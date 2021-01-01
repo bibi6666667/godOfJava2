@@ -23,4 +23,15 @@ public class StackSample {
         // empty() : 객체가 비어있는지 확인한다 (boolean).
         // search(Object o) : o의 위치를 리턴한다(int).
     }
+
+    public void checkPop() {
+        Stack<Integer> intStack = new Stack<Integer>();
+        for (int i = 0; i < 5; i++) {
+            intStack.push(i);
+            System.out.println(intStack.pop());
+        }
+        System.out.println("size = " + intStack.size());
+        // Stack에서 데이터를 읽으면서 삭제하기 : empty()와 pop()을 사용해 값을 하나씩 확인하며 제거할 수 있다.
+        // (위 코드) : push()로 데이터를 넣고, 넣은 데이터를 pop()으로 뽑아내며 읽어온다.
+    }
 }
