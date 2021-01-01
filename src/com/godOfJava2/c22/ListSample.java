@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ListSample {
     public static void main(String[] args) {
         ListSample sample = new ListSample();
-        sample.checkArrayList1();
+        sample.checkArrayList2();
     }
 
     public void checkArrayList1() {
@@ -23,5 +23,25 @@ public class ListSample {
         ArrayList<String> list2 = new ArrayList<>(100);
         // ArrayList선언시 매개변수를 지정하지 않으면 초기크기는 10이다. 10개 이상의 데이터를 넣을 때는 크기를 늘이는 작업이 수행된다.
         // 성능에 영향을 줄 수 있으므로 초기 크기가 어느정도 예상될 때에는 예상치로 지정하는 것이 좋다.
+    }
+
+    public void checkArrayList2() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.add("D");
+        list.add("E");
+        list.add(1, "A1");
+        // ArrayList에 객체를 넣을 떄는 add()를 사용한다.
+        // add(int index, E e)
+        // - index (생략가능) : index위치에 객체를 담는다.
+        // - e : 담을 객체.
+        // list.add(10, "A1"); // IndexOutOfBoundsException - list의 길이는 5인데 10번째 값을 찾으려 하니 예외 발생.
+
+        for (String tempData : list) {
+            System.out.println(tempData);
+        } // 출력문
+        // for (타입이름 임시변수명 : 반복대상객체 { } - Collection 인터페이스를 구현한 모든 클래스에서 사용 가능하다.
     }
 }
