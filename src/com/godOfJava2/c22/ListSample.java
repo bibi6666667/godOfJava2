@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ListSample {
     public static void main(String[] args) {
         ListSample sample = new ListSample();
-        sample.checkArrayList5();
+        sample.checkArrayList7();
     }
 
     public void checkArrayList1() {
@@ -105,5 +105,21 @@ public class ListSample {
         // T[] a는 생략할 수 있지만, 생략하면 Object[]로만 리턴되므로 제네릭을 사용한 ArrayList를 변환할 때는 T[] a를 작성해야.
         // 102 line - new String[0] 처럼 매개변수로 넘긴 객체에 타입을 지정하고 값도 담아주는 게 좋다.
         // ArrayList 데이터크기 > 매개변수 일 경우 배열의 모든 값이 null이 되기 떄문. -> checkArrayList7()
+    }
+
+    public void checkArrayList7() {
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        String[] tempArray = new String[3]; // A B C (정상출력)
+        // String[] tempArray = new String[5]; // A B C null null
+        // -> ArrayList < 배열 이면 toString()으로 담았을 때 빈 자리는 null로 채워진다.
+        // String[] tempArray = new String[2]; // null null -> 왜 안되지;
+        // -> ArrayList > 배열 이면 toString()으로 담을 수 없으므로 모두 null로 채워진다.
+        String[] strList = list.toArray(tempArray); // list를 tempArray 형식의 배열로 만든다.
+        for (String temp : strList) {
+            System.out.println(temp);
+        }
     }
 }
