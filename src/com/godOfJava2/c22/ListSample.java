@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ListSample {
     public static void main(String[] args) {
         ListSample sample = new ListSample();
-        sample.checkArrayList2();
+        sample.checkArrayList3();
     }
 
     public void checkArrayList1() {
@@ -43,5 +43,27 @@ public class ListSample {
             System.out.println(tempData);
         } // 출력문
         // for (타입이름 임시변수명 : 반복대상객체 { } - Collection 인터페이스를 구현한 모든 클래스에서 사용 가능하다.
+    }
+
+    public void checkArrayList3() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.add("D");
+        list.add("E");
+        list.add(1, "A1");
+        ArrayList<String> list2 = new ArrayList<>();
+        list2.add("0 ");
+        list2.addAll(list);
+        // addAll() : list2에 list의 모든 객체를 (끝에서부터) 담는다.
+
+        ArrayList<String> list3 = new ArrayList<>(list);
+        // 58번 라인과 같은 결과를 도출하는 생성자.
+        // ArrayList에는 Collection 인터페이스를 구현한 모든 클래스를 포함시킬 수 있는 생성자가 있다.
+
+        for (String tempData : list2) {
+            System.out.println("List2 " + tempData);
+        }
     }
 }
