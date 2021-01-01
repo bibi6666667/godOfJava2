@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ListSample {
     public static void main(String[] args) {
         ListSample sample = new ListSample();
-        sample.checkArrayList8();
+        sample.checkArrayList9();
     }
 
     public void checkArrayList1() {
@@ -145,5 +145,16 @@ public class ListSample {
         // clear() : 모든 데이터를 삭제
     }
 
-    
+    public void checkArrayList9() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        System.out.println(list.set(0, "Z"));
+        for (String tempData : list) {
+            System.out.println(tempData);
+        }
+        // set(int index, E element) : index 위치의 데이터를 element로 변경하고, index 위치에 있었던 데이터를 리턴한다.
+        // 데이터를 삭제remove(), 추가add() 하는 대신 set()로 한 번에 수정이 가능하다.
+    }
 }
