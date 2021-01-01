@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ListSample {
     public static void main(String[] args) {
         ListSample sample = new ListSample();
-        sample.checkArrayList3();
+        sample.checkArrayList4();
     }
 
     public void checkArrayList1() {
@@ -65,5 +65,20 @@ public class ListSample {
         for (String tempData : list2) {
             System.out.println("List2 " + tempData);
         }
+    }
+
+    public void checkArrayList4() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+
+        ArrayList<String> list2 = list;
+        list.add("Ooops");
+        for (String tempData : list2) {
+            System.out.println("List2 " + tempData);
+        }
+        // 600-601
+        // 74번 라인의 ArrayList<String> list2 = list; 선언은 Shallow copy이다.
+        // Shallow copy : 다른 객체에 원본 객체의 주소값만을 할당하는 복사. (주솟값 복사)
+        // Deep copy : 객체의 모든 값을 복사하여, 복제된 객체에 있는 값을 변경해도 원본에 영향이 없도록 하는 복사. (값 복사)
     }
 }
