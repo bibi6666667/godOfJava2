@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ListSample {
     public static void main(String[] args) {
         ListSample sample = new ListSample();
-        sample.checkArrayList7();
+        sample.checkArrayList8();
     }
 
     public void checkArrayList1() {
@@ -122,4 +122,28 @@ public class ListSample {
             System.out.println(temp);
         }
     }
+
+    public void checkArrayList8() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+        list.add("A");
+        //System.out.println("Removed " + list.remove(0)); // Removed A B C A
+
+        //System.out.println(list.remove("A")); // true B C A
+
+        //ArrayList<String> temp = new ArrayList<String>();
+        //temp.add("A");
+        //list.removeAll(temp); // B C
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("list.get(" + i + ") = " + list.get(i));
+        }
+        // remove(int index 또는 Object o) : 지정 인덱스 또는 지정 객체와 동일한 데이터를 삭제하고, 삭제한 데이터를 리턴한다.
+        // removeAll(Collection<?> c) : 매개변수로 넘어온 컬렉션 객체에 있는 데이터와 동일한 모든 데이터를 삭제한다.
+        // clear() : 모든 데이터를 삭제
+    }
+
+    
 }
