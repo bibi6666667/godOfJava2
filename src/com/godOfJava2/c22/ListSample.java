@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ListSample {
     public static void main(String[] args) {
         ListSample sample = new ListSample();
-        sample.checkArrayList4();
+        sample.checkArrayList5();
     }
 
     public void checkArrayList1() {
@@ -80,5 +80,19 @@ public class ListSample {
         // 74번 라인의 ArrayList<String> list2 = list; 선언은 Shallow copy이다.
         // Shallow copy : 다른 객체에 원본 객체의 주소값만을 할당하는 복사. (주솟값 복사)
         // Deep copy : 객체의 모든 값을 복사하여, 복제된 객체에 있는 값을 변경해도 원본에 영향이 없도록 하는 복사. (값 복사)
+    }
+
+    public void checkArrayList5() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        int listSize = list.size();
+        for (int loop = 0; loop < listSize; loop++) {
+            System.out.println("list.get(" + loop + ") = " + list.get(loop));
+        }
+        // size() : ArrayList에 들어가 있는 데이터의 객수를 리턴한다. Collection 인터페이스를 구현한 모든 객체에서 사용 가능
+        // get() : 매개변수에 지정한 위치에 있는 데이터를 리턴한다.
+        // indexOf() : 매개변수와 동일한 데이터의 위치를 리턴한다. (리스트의 앞에서부터 찾는다)
+        // lastIndexOf() : 매개변수와 동일한 마지막 데이터의 위치를 리턴한다. (리스트의 뒤에서부터 찾는다)
     }
 }
