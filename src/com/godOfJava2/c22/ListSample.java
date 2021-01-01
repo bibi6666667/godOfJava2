@@ -95,4 +95,15 @@ public class ListSample {
         // indexOf() : 매개변수와 동일한 데이터의 위치를 리턴한다. (리스트의 앞에서부터 찾는다)
         // lastIndexOf() : 매개변수와 동일한 마지막 데이터의 위치를 리턴한다. (리스트의 뒤에서부터 찾는다)
     }
+
+    public void checkArrayList6() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        String[] strList = list.toArray(new String[0]);
+        System.out.println(strList[0]);
+        // toArray(T[] a) : ArrayList객체의 값들을 T타입의 배열로 만든다.
+        // T[] a는 생략할 수 있지만, 생략하면 Object[]로만 리턴되므로 제네릭을 사용한 ArrayList를 변환할 때는 T[] a를 작성해야.
+        // 102 line - new String[0] 처럼 매개변수로 넘긴 객체에 타입을 지정하고 값도 담아주는 게 좋다.
+        // ArrayList 데이터크기 > 매개변수 일 경우 배열의 모든 값이 null이 되기 떄문. -> checkArrayList7()
+    }
 }
