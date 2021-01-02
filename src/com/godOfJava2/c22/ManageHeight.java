@@ -8,7 +8,6 @@ public class ManageHeight {
     public static void main(String[] args) {
         ManageHeight manageHeight = new ManageHeight();
         manageHeight.setData();
-
         for (int i = 1; i < 6; i++) {
             System.out.println("Class No. : " + i);
             manageHeight.printHeight(i);
@@ -50,8 +49,16 @@ public class ManageHeight {
     }
 
     public void printHeight(int classNo) {
-        for (int height : gradeHeights.get(classNo - 1)) {
+        ArrayList<Integer> classHeights = gradeHeights.get(classNo - 1);
+        for (int height : classHeights) {
             System.out.println(height);
         }
+    }
+
+    public void printAverage(int classNo) {
+        double classHeightAverage = 0;
+        double sum = gradeHeights.get(classNo - 1)
+        System.out.println("Class No. : " + classNo);
+        System.out.println("Height average : " + classHeightAverage);
     }
 }
