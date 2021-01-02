@@ -9,11 +9,9 @@ public class ManageHeight {
         ManageHeight manageHeight = new ManageHeight();
         manageHeight.setData();
         for (int i = 1; i < 6; i++) {
-            System.out.println("Class No. : " + i);
             manageHeight.printHeight(i);
         }
         for (int i = 1; i < 6; i++) {
-            System.out.println("Class No. : " + i);
             manageHeight.printAverage(i);
         }
 
@@ -28,44 +26,45 @@ public class ManageHeight {
         class1.add(177);
         gradeHeights.add(0, class1);
         ArrayList<Integer> class2 = new ArrayList<Integer>(4);
-        class1.add(160);
-        class1.add(165);
-        class1.add(167);
-        class1.add(186);
+        class2.add(160);
+        class2.add(165);
+        class2.add(167);
+        class2.add(186);
         gradeHeights.add(1, class2);
         ArrayList<Integer> class3 = new ArrayList<Integer>(4);
-        class1.add(158);
-        class1.add(177);
-        class1.add(187);
-        class1.add(176);
+        class3.add(158);
+        class3.add(177);
+        class3.add(187);
+        class3.add(176);
         gradeHeights.add(2, class3);
         ArrayList<Integer> class4 = new ArrayList<Integer>(3);
-        class1.add(173);
-        class1.add(182);
-        class1.add(181);
+        class4.add(173);
+        class4.add(182);
+        class4.add(181);
         gradeHeights.add(3, class4);
         ArrayList<Integer> class5 = new ArrayList<Integer>(5);
-        class1.add(170);
-        class1.add(180);
-        class1.add(165);
-        class1.add(177);
-        class1.add(172);
+        class5.add(170);
+        class5.add(180);
+        class5.add(165);
+        class5.add(177);
+        class5.add(172);
         gradeHeights.add(4, class5);
     }
 
     public void printHeight(int classNo) {
         ArrayList<Integer> classHeights = gradeHeights.get(classNo - 1);
+        System.out.println("Class No. : " + classNo);
         for (int height : classHeights) {
             System.out.println(height);
         }
     }
 
     public void printAverage(int classNo) {
-        int sum = 0;
+        double sum = 0; // 결과가 double로 나오려면 나누는 수와 나눠지는 수 둘 중 하나라도 double이어야.
         int students = 0;
         double classHeightAverage = 0;
         ArrayList<Integer> classHeights = gradeHeights.get(classNo - 1);
-        System.out.println(students);
+        students = classHeights.size();
         for (int height : classHeights) {
             sum += height;
         }
