@@ -1,5 +1,6 @@
 package com.godOfJava2.c24;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -7,7 +8,8 @@ public class MapSample {
     public static void main(String[] args) {
         MapSample sample = new MapSample();
         //sample.checkHashMap();
-        sample.checkKeySet();
+        //sample.checkKeySet();
+        sample.checkValues();
     }
 
     public void checkHashMap() { // HashMap 사용하기
@@ -27,6 +29,17 @@ public class MapSample {
         for(String tempKey : keySet) {
             System.out.println(tempKey + " = " + map.get(tempKey));
         }
+    }
 
+    public void checkValues() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("A", "a");
+        map.put("C", "c");
+        map.put("D", "d");
+        Collection<String> values = map.values();
+        // values() : HashMap에 담긴 값의 목록을 Collection타입으로 리턴. (Collection을 import해야 함)
+        for(String tempValue : values) {
+            System.out.println(tempValue);
+        }
     }
 }
