@@ -13,7 +13,8 @@ public class MapSample {
         //sample.checkKeySet();
         //sample.checkValues();
         //sample.checkHashMapEntry();
-        sample.checkContains();
+        //sample.checkContains();
+        sample.checkRemove();
     }
 
     public void checkHashMap() { // HashMap 사용하기
@@ -74,5 +75,12 @@ public class MapSample {
         System.out.println(map.containsValue("z"));
         // containsKey(K) : 키K가 존재하면 true, 존재하지 않으면 false를 리턴한다. 
         // containsValue(V) : 값V이 존재하면 true, 존재하지 않으면 false를 리턴한다.
+    }
+
+    public void checkRemove() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("A", "a");
+        map.remove("A"); // remove(K) : 해당 키를 갖는 데이터를 삭제한다.
+        System.out.println(map.size()); // size() : 데이터의 개수를 리턴한다 - Map인터페이스를 구현한 클래스들의 공통 메서드.
     }
 }
