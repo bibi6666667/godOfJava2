@@ -2,14 +2,17 @@ package com.godOfJava2.c24;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 
 public class MapSample {
     public static void main(String[] args) {
         MapSample sample = new MapSample();
         //sample.checkHashMap();
         //sample.checkKeySet();
-        sample.checkValues();
+        //sample.checkValues();
+        sample.checkHashMapEntry();
     }
 
     public void checkHashMap() { // HashMap 사용하기
@@ -41,5 +44,20 @@ public class MapSample {
         for(String tempValue : values) {
             System.out.println(tempValue);
         }
+    }
+
+    public void checkHashMapEntry() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("A", "a");
+        map.put("B", "b");
+        map.put("C", "c");
+        map.put("D", "d");
+        Set<Map.Entry<String,String>> entries = map.entrySet();
+        for(Map.Entry<String,String> tempEntry: entries) {
+            System.out.println(tempEntry.getKey() + " = " + tempEntry.getValue());
+        }
+        // entrySet() : Map에 선언된 Entry객체를 Set타입으로 리턴한다. Entry에는 단 하나의 키와 값만 저장된다.
+        // 리턴된 Set에는 Entry타입으로 데이터가 저장된다.
+        // Entry의 getKey()를 사용하면 키를, getValue()를 사용하면 값을 가져올 수 있다.
     }
 }
