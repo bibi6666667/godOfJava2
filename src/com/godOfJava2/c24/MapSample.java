@@ -12,7 +12,8 @@ public class MapSample {
         //sample.checkHashMap();
         //sample.checkKeySet();
         //sample.checkValues();
-        sample.checkHashMapEntry();
+        //sample.checkHashMapEntry();
+        sample.checkContains();
     }
 
     public void checkHashMap() { // HashMap 사용하기
@@ -59,5 +60,19 @@ public class MapSample {
         // entrySet() : Map에 선언된 Entry객체를 Set타입으로 리턴한다. Entry에는 단 하나의 키와 값만 저장된다.
         // 리턴된 Set에는 Entry타입으로 데이터가 저장된다.
         // Entry의 getKey()를 사용하면 키를, getValue()를 사용하면 값을 가져올 수 있다.
+    }
+
+    public void checkContains() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("A", "a");
+        map.put("B", "b");
+        map.put("C", "c");
+        map.put("D", "d");
+        System.out.println(map.containsKey("A"));
+        System.out.println(map.containsKey("Z"));
+        System.out.println(map.containsValue("a"));
+        System.out.println(map.containsValue("z"));
+        // containsKey(K) : 키K가 존재하면 true, 존재하지 않으면 false를 리턴한다. 
+        // containsValue(V) : 값V이 존재하면 true, 존재하지 않으면 false를 리턴한다.
     }
 }
