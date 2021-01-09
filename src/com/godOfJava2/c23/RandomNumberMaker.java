@@ -20,9 +20,10 @@ public class RandomNumberMaker {
     public HashSet<Integer> getSixNumber() {
         HashSet<Integer> randomNumSet = new HashSet<>();
         Random random = new Random();
-        while (randomNumSet.size() < 6) {
+        while (true) {
             int randomNum = random.nextInt(45);
             randomNumSet.add(randomNum);
+            if (randomNumSet.size() == 6) break;
         }
         return randomNumSet;
     }
