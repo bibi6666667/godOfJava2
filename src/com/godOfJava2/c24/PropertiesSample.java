@@ -12,8 +12,8 @@ public class PropertiesSample {
     public static void main(String[] args) {
         PropertiesSample sample = new PropertiesSample();
         //sample.checkProperties();
-        sample.saveAndLoadProperties();
-        //sample.saveAndLoadPropertiesXML();
+        //sample.saveAndLoadProperties();
+        sample.saveAndLoadPropertiesXML();
     }
 
     public void checkProperties() {
@@ -42,6 +42,28 @@ public class PropertiesSample {
             propLoaded.load(fis);
             fis.close();
             System.out.println(propLoaded); // Hashtable에 toString()이 구현되어 있어 Properties객체를 출력해도 잘 출력된다.
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /// .XML 퐉장자의 설정 파일 만들기
+    public void saveAndLoadPropertiesXML() {
+        try {
+            String fileName = "test.xml";
+            File propertiesFile = new File(fileName); // File : 파일을 다루는 클래스
+            FileOutputStream fos = new FileOutputStream(propertiesFile); // FileOutputStream : 파일에 저장할 때 사용하는 클래스
+            Properties prop = new Properties(); // 파일에 속성을 지정 및 작성하는 부분.
+            prop.setProperty("Writer", "Sangmin, Lee");
+            prop.setProperty("WriterHome", "http://www.GodOfJava.com");
+            prop.storeToXML(fos, "Basic XML Property file.");
+            fos.close();
+
+            FileInputStream fis = new FileInputStream(propertiesFile); // FileInputStream : 파일에서 읽을 때 사용하는 클래스
+            Properties propLoaded = new Properties();
+            propLoaded.loadFromXML(fis);
+            System.out.println(propLoaded);
+            fis.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
