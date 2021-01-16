@@ -3,10 +3,17 @@ package com.godOfJava2.c24;
 import java.util.Properties;
 import java.util.Set;
 
+//Properties클래스로 파일IO를 수행하기 위해 import해야 하는 클래스.
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 public class PropertiesSample {
     public static void main(String[] args) {
         PropertiesSample sample = new PropertiesSample();
-        sample.checkProperties();
+        //sample.checkProperties();
+        sample.saveAndLoadProperties();
+        //sample.saveAndLoadPropertiesXML();
     }
 
     public void checkProperties() {
@@ -17,6 +24,26 @@ public class PropertiesSample {
         for (Object tempObject : keySet) {
             System.out.println(tempObject + "=" + prop.get(tempObject));
         }
+    }
 
+    // .properties 확장자인 설정 파일 만들기
+    public void saveAndLoadProperties() { 
+        try {
+            String fileName = "test.proterties";
+            File propertiesFile = new File(fileName); // File : 파일을 다룰 때 사용.
+            FileOutputStream fos = new FileOutputStream(propertiesFile); // FileOutputStream : 파일에 저장할 때 사용.
+            Properties prop = new Properties(); // 속성을 지정해 파일에 작성하는 부분.
+            prop.setProperty("Writer", "Sangmin, Lee");
+            prop.setProperty("WriterHome", "http://www.GodOfJava.com");
+            prop.store(fos, "Basic Proterties file.");
+            fos.close();
+            FileInputStream fis = new FileInputStream(propertiesFile); // FileInputStream : 파일에서 읽을 때 사용.
+            Properties propLoaded = new Properties();// 파일에서 속성을 읽는 부분.
+            propLoaded.load(fis);
+            fis.close();
+            System.out.println(propLoaded); // Hashtable에 toString()이 구현되어 있어 Properties객체를 출력해도 잘 출력된다.
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
