@@ -19,5 +19,12 @@ public class StudentForEachSample {
         for (StudentDTO student : students) System.out.println(student.getName());
         // stream() - stream을 생성한다.
         // stream 메소드 - forEach(). for문을 수행하는 것처럼 컬렉션에서 각각의 항목을 꺼낸다.
+
+        students.stream().map(student -> student.getName()).forEach(name -> System.out.println(name));
+        // stream 메소드 - map(). 데이터를 특정 데이터로 변환한다. 즉 StudentDTO객체가 아닌 String타입의 name객체로 사용하겠다는 의미.
+
+        students.stream().map(student -> student.getAge()).forEach(age -> System.out.println(age));
+        students.stream().map(student -> student.getScoreMath()).forEach(mathScore -> System.out.println(mathScore));
+        students.stream().map(student -> student.getScoreEnglish()).forEach(englishScore -> System.out.println(englishScore));
     }
 }
