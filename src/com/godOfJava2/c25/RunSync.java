@@ -7,7 +7,7 @@ public class RunSync {
     }
 
     public void runCommonCalculate() {
-        CommonCalculate calc = new CommonCalculate();
+        CommonCalculate calc = new CommonCalculate(); // 같은 객체를 참조하는 쓰레드에 대해서만 synchronized가 기능한다;
         ModifyAmountThread thread1 = new ModifyAmountThread(calc, true);
         ModifyAmountThread thread2 = new ModifyAmountThread(calc, true);
         ModifyAmountThread thread3 = new ModifyAmountThread(calc, false);
@@ -23,6 +23,7 @@ public class RunSync {
             thread2.join();
             thread3.join();
             thread4.join();
+
             System.out.println("Final value is " + calc.getAmount());
         } catch (InterruptedException e) {
             e.printStackTrace();
