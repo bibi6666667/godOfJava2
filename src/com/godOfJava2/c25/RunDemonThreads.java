@@ -3,7 +3,7 @@ package com.godOfJava2.c25;
 public class RunDemonThreads {
     public static void main(String[] args) {
         RunDemonThreads sample = new RunDemonThreads();
-        sample.checkThreadProperty();
+        sample.runDaemonThread();
     }
 
     public void checkThreadProperty() {
@@ -26,6 +26,18 @@ public class RunDemonThreads {
         System.out.println("daemonThread isDaemon = " + demonThread.isDaemon());
         // isDaemon() : 스레드가 데몬인지 확인. 맞으면 true
         // setDaemon(boolean on) : 스레드를 데몬으로 설정할지 여부를 지정
+    }
+
+    public void runCommonThread() {
+        DaemonThread thread = new DaemonThread();
+        thread.start(); // 데몬 스레드로 지정하지 않았을 때 - 스레드가 종료될 때 까지 대기 중 상태가 됨.
+    }
+
+    public void runDaemonThread() {
+        DaemonThread thread = new DaemonThread();
+        thread.setDaemon(true);
+        thread.start(); // 데몬 스레드로 지정했을 때 - 스레드 종료 여부와 관계없이 종료됨.
+        // 데몬 스레드는 해당 스레드가 종료되지 않아도, 다른 실행중인 일반 스레드가 없다면 멈춰버린다.
     }
 
 }
