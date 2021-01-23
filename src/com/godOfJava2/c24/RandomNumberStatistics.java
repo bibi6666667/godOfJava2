@@ -14,10 +14,10 @@ public class RandomNumberStatistics {
     }
 
     public void getRandomNumberStatistics() {
-        int randomNum;
         for (int i = 0; i < 5000; i++) {
+            int randomNum;
             Random random = new Random();
-            randomNum = random.nextInt(50);
+            randomNum = random.nextInt(DATA_BOUNDARY) + 1; // 0부터 49가 아닌, 1부터 50이므로
             putCurrentNumber(randomNum);
         }
         printStatistics();
