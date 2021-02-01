@@ -3,7 +3,6 @@ package com.godOfJava2.c28;
 import java.io.BufferedOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 // 데이터를 보내는 '클라이언트'의 소스코드.
